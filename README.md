@@ -7,6 +7,24 @@ I fixed the broken Markdown tables, ensured all the code blocks are closed prope
 ```markdown
 # JobBridge 🌉
 
+## 📸 Screenshots
+
+### Homepage & Marketing
+![Homepage](screenshots/homepage.png)
+*The modern, responsive landing page for JobBridge.*
+
+### Login & Authentication
+![Login](screenshots/login.png)
+*Split-screen login experience with JWT authentication.*
+
+### Candidate Dashboard
+![Candidate Dashboard](screenshots/candidate-dashboard.png)
+*Track applications, manage profiles, and view saved jobs.*
+
+### Employer Dashboard
+![Employer Dashboard](screenshots/employer-dashboard.png)
+*Manage job postings, review applicants, and schedule interviews.*
+
 **Connecting Talent with Opportunity**
 
 JobBridge is a modern, full-stack job portal platform built with **Python, Django 5, Django REST Framework (DRF), HTML5, CSS3, and Vanilla JavaScript**.
