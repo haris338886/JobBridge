@@ -15,6 +15,23 @@ APIs, and a relational database to provide a scalable foundation for
 recruitment and job management.
 
 ------------------------------------------------------------------------
+## 📸 Screenshots
+
+### Homepage & Marketing
+![Homepage](screenshots/homepage.png)
+*The modern, responsive landing page for JobBridge.*
+
+### Login & Authentication
+![Login](screenshots/login.png)
+*Split-screen login experience with JWT authentication.*
+
+### Employer Dashboard
+![Employer Dashboard](screenshots/employer-dashboard.png)
+*Manage job postings, review applicants, and schedule interviews.*
+
+### SignUp Page
+![SignUp Page](screenshots/SignUp.png)
+*Candidates and Employers can Register*
 
 ## 📖 Table of Contents
 
@@ -1045,5 +1062,6 @@ JavaScript.
 ⭐ If you find this project useful, consider giving it a star on GitHub.
 
 **JobBridge --- Your Career. Your Opportunity. Your Future.**
-#   J o b B r i d g e  
+#   J o b B r i d g e 
+ 
  
