@@ -1,5 +1,3 @@
-
-```markdown
 # JobBridge 🌉
 
 ## 📸 Screenshots
@@ -550,4 +548,3 @@ Built with Python, Django, Django REST Framework, HTML, CSS, and JavaScript.
 **GitHub:** [https://github.com/YOUR_USERNAME/JobBridge](https://github.com/YOUR_USERNAME/JobBridge)
 
 ⭐ If you find this project useful, consider giving it a star on GitHub.
-```
