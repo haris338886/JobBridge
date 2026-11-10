@@ -5,8 +5,11 @@
 ## 📸 Screenshots
 
 ### Homepage & Marketing
-![Homepage](screenshots/homepage.png)
+![Homepage]<img width="1917" height="872" alt="employer-dashboard" src="https://github.com/user-attachments/assets/3e5a8da0-637d-4b9a-8a70-d508a09e77a4" />
 *The modern, responsive landing page for JobBridge.*
+
+
+![Uploading employer-dashboard.png…]()
 
 ### Login & Authentication
 ![Login](screenshots/login.png)
