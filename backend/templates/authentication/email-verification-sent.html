@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Check Your Email — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+
+    <aside class="auth-panel">
+        <a href="{% url 'marketing:index' %}" class="auth-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>JobBridge</span>
+        </a>
+
+        <div class="auth-panel__content">
+            <h2>Check Your <span class="accent">Inbox.</span></h2>
+            <p>We've sent you a verification email. Click the link inside to activate your account.</p>
+        </div>
+
+        <div class="auth-panel__footer">© {% now "Y" %} JobBridge. All rights reserved.</div>
+    </aside>
+
+    <section class="auth-form-side">
+        <div class="auth-form-wrap">
+            <div class="error-icon" style="background: var(--blue-50); color: var(--blue-600); margin: 0 auto var(--space-4);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+            </div>
+
+            <h1 style="text-align: center;">Check your email</h1>
+            <p class="subtitle" style="text-align: center;">
+                We sent a verification link to
+                <strong>{% if email %}{{ email }}{% else %}your inbox{% endif %}</strong>.
+                Click it to activate your account.
+            </p>
+
+            <div class="auth-alert show info" style="background: var(--info-50); border-color: var(--info-100); color: var(--info-600);">
+                Didn't get the email? Check your spam folder, or wait a minute and try logging in.
+            </div>
+
+            <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-lg btn-block">
+                Go to login
+            </a>
+
+            <div class="auth-footer-links">
+                <div class="row">
+                    <span>Wrong email address?</span>
+                    <a href="{% url 'accounts:register' %}">Start over</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static %}
+<header class="navbar">
+    <div class="navbar-container">
+        <a href="{% url 'marketing:index' %}" class="navbar-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>JobBridge</span>
+        </a>
+
+        <nav class="navbar-menu" aria-label="Primary">
+            <a href="{% url 'marketing:index' %}">Home</a>
+            <a href="{% url 'marketing:about' %}">About</a>
+            <a href="{% url 'marketing:careers' %}">Careers</a>
+            <a href="{% url 'marketing:contact' %}">Contact</a>
+            <a href="{% url 'marketing:job_list' %}">Find Jobs</a>
+        </nav>
+
+        <div class="navbar-actions">
+            {% if user.is_authenticated %}
+                {% if user.is_candidate %}
+                    <a href="{% url 'candidates:dashboard' %}" class="btn btn-ghost">Dashboard</a>
+                {% elif user.is_employer %}
+                    <a href="{% url 'employers:dashboard' %}" class="btn btn-ghost">Dashboard</a>
+                {% else %}
+                    <a href="{% url 'admin_panel:dashboard' %}" class="btn btn-ghost">Admin</a>
+                {% endif %}
+                <a href="{% url 'accounts:logout' %}" class="btn btn-outline">Logout</a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="btn btn-ghost">Log in</a>
+                <a href="{% url 'accounts:register' %}" class="btn btn-primary">Sign up</a>
+            {% endif %}
+        </div>
+
+        <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>

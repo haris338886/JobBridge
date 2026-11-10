@@ -1,0 +1,147 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Contact Us — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/marketing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Let's Start a Conversation</h1>
+        <p>Have a question, suggestion, or partnership idea? We'd love to hear from you.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="contact-layout">
+            <!-- Info column -->
+            <div>
+                <div class="contact-info-list">
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@jobbridge.example</p>
+                            <small>We respond within 1 business day</small>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div>
+                            <h3>Business hours</h3>
+                            <p>Mon–Fri · 9:00–18:00 (UTC)</p>
+                            <small>Excludes public holidays</small>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <h3>Headquarters</h3>
+                            <p>Remote-first team</p>
+                            <small>Office address available on request</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form column -->
+            <div class="contact-form-card">
+                <h2 style="margin-bottom: 0.5rem;">Send us a message</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.875rem;">Fill in the form below and we'll get back to you shortly.</p>
+
+                <div id="contactAlert" class="auth-alert" role="alert"></div>
+
+                <form id="contactForm" class="form" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="required">Full name</label>
+                            <input type="text" id="name" name="name" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="required">Email address</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="required">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiry">Inquiry type</label>
+                        <select id="inquiry" name="inquiry">
+                            <option value="general">General inquiry</option>
+                            <option value="candidate">Candidate support</option>
+                            <option value="employer">Employer support</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="press">Press &amp; media</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="required">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-title">
+            <h2>Frequently asked questions</h2>
+            <p>Quick answers to the most common questions.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-header" type="button">
+                    Is JobBridge free for candidates?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body"><div class="faq-body-inner">Yes — creating a candidate account and applying to jobs is completely free. Employers pay to post jobs and access premium features.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-header" type="button">
+                    How do I reset my password?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body"><div class="faq-body-inner">Click "Forgot password?" on the login page and enter your email. We'll send you a link to reset it.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-header" type="button">
+                    Can I delete my account?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body"><div class="faq-body-inner">Yes — from your account settings. All your personal data will be permanently removed within 30 days.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-header" type="button">
+                    How does JobBridge protect my data?
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body"><div class="faq-body-inner">We use industry-standard encryption in transit and at rest, and never sell your personal data. See our Privacy Policy for full details.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/marketing.js' %}"></script>
+<script src="{% static 'js/pages/contact.js' %}"></script>
+{% endblock %}

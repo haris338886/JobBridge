@@ -1,0 +1,48 @@
+/* ============================================================
+   JobBridge — Employer-specific
+   ============================================================ */
+.applicant-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+.applicant-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--brand-500), var(--accent-500));
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    flex-shrink: 0;
+}
+.applicant-info { display: flex; flex-direction: column; gap: 2px; }
+.applicant-info strong { font-size: var(--fs-sm); color: var(--gray-900); }
+.applicant-info span  { font-size: var(--fs-xs); color: var(--text-muted); }
+
+.interview-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-bottom: var(--space-3);
+    transition: all var(--transition-base);
+}
+.interview-card:hover {
+    border-color: var(--brand-200);
+    box-shadow: var(--shadow-md);
+}
+.interview-card h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-2);
+}
+.interview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}

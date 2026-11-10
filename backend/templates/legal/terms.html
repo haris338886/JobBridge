@@ -1,0 +1,136 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Terms &amp; Conditions — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/marketing.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/legal.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Terms &amp; Conditions</h1>
+        <p>Please read these terms carefully before using JobBridge.</p>
+    </div>
+</section>
+
+<div class="legal-layout">
+    <aside class="legal-toc" aria-label="Table of contents">
+        <h3>On this page</h3>
+        <ul>
+            <li><a href="#acceptance">Acceptance of terms</a></li>
+            <li><a href="#eligibility">User eligibility</a></li>
+            <li><a href="#registration">Account registration</a></li>
+            <li><a href="#candidate">Candidate responsibilities</a></li>
+            <li><a href="#employer">Employer responsibilities</a></li>
+            <li><a href="#jobposting">Job posting rules</a></li>
+            <li><a href="#applications">Applications &amp; recruitment</a></li>
+            <li><a href="#prohibited">Prohibited activities</a></li>
+            <li><a href="#ip">Intellectual property</a></li>
+            <li><a href="#suspension">Account suspension</a></li>
+            <li><a href="#liability">Limitation of liability</a></li>
+            <li><a href="#changes">Changes to terms</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </aside>
+
+    <article class="legal-content">
+        <div class="legal-meta">
+            <span class="badge">Draft</span>
+            <span>Last updated: {% now "F j, Y" %}</span>
+            <span>·</span>
+            <span>These are draft terms and must be reviewed by a qualified legal professional before publication.</span>
+        </div>
+
+        <section id="acceptance">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using JobBridge, you agree to be bound by these Terms. If you do not agree, please do not use the platform.</p>
+        </section>
+
+        <section id="eligibility">
+            <h2>2. User Eligibility</h2>
+            <p>You must be at least 18 years old and legally able to enter into contracts to use JobBridge. By registering, you confirm you meet these requirements.</p>
+        </section>
+
+        <section id="registration">
+            <h2>3. Account Registration</h2>
+            <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account. Notify us immediately of any unauthorised use.</p>
+        </section>
+
+        <section id="candidate">
+            <h2>4. Candidate Responsibilities</h2>
+            <ul>
+                <li>Provide accurate information about your skills, experience, and eligibility.</li>
+                <li>Do not misrepresent your identity or qualifications.</li>
+                <li>Apply only to roles for which you are genuinely interested and qualified.</li>
+            </ul>
+        </section>
+
+        <section id="employer">
+            <h2>5. Employer Responsibilities</h2>
+            <ul>
+                <li>Post only genuine job openings with accurate details.</li>
+                <li>Comply with all applicable employment and anti-discrimination laws.</li>
+                <li>Do not request money from candidates as a condition of employment.</li>
+            </ul>
+        </section>
+
+        <section id="jobposting">
+            <h2>6. Job Posting Rules</h2>
+            <p>Job listings must not contain discriminatory language, misleading claims, or requests for sensitive personal information unrelated to the role. We reserve the right to remove any listing that violates these rules.</p>
+        </section>
+
+        <section id="applications">
+            <h2>7. Applications &amp; Recruitment</h2>
+            <p>JobBridge is a platform — we do not participate in the hiring decision. Any agreement between a candidate and an employer is solely between them.</p>
+        </section>
+
+        <section id="prohibited">
+            <h2>8. Prohibited Activities</h2>
+            <ul>
+                <li>Using the platform for illegal or fraudulent purposes.</li>
+                <li>Attempting to access other users' accounts or data.</li>
+                <li>Scraping, spamming, or overloading the platform.</li>
+                <li>Posting malware or malicious links.</li>
+            </ul>
+        </section>
+
+        <section id="ip">
+            <h2>9. Intellectual Property</h2>
+            <p>All JobBridge branding, code, and content are our property. You retain ownership of the content you upload (resumes, profiles, job listings).</p>
+        </section>
+
+        <section id="suspension">
+            <h2>10. Account Suspension</h2>
+            <p>We may suspend or terminate accounts that violate these Terms, without prior notice.</p>
+        </section>
+
+        <section id="liability">
+            <h2>11. Limitation of Liability</h2>
+            <p>JobBridge is provided "as is" without warranties. We are not liable for indirect or consequential damages arising from your use of the platform.</p>
+        </section>
+
+        <section id="changes">
+            <h2>12. Changes to Terms</h2>
+            <p>We may update these Terms from time to time. Material changes will be communicated by email or through the platform.</p>
+        </section>
+
+        <section id="contact">
+            <h2>13. Contact</h2>
+            <p>For questions about these Terms, contact <a href="mailto:legal@jobbridge.example">legal@jobbridge.example</a>.</p>
+        </section>
+    </article>
+</div>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/legal.js' %}"></script>
+{% endblock %}

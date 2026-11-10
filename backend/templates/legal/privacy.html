@@ -1,0 +1,140 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/marketing.css' %}">
+<link rel="stylesheet" href="{% static 'css/pages/legal.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy matters. Here's what we collect, why, and how you can control it.</p>
+    </div>
+</section>
+
+<div class="legal-layout">
+    <!-- TOC -->
+    <aside class="legal-toc" aria-label="Table of contents">
+        <h3>On this page</h3>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#collect">Information we collect</a></li>
+            <li><a href="#use">How we use information</a></li>
+            <li><a href="#account">Account information</a></li>
+            <li><a href="#resume">Resume &amp; application data</a></li>
+            <li><a href="#cookies">Cookies &amp; tracking</a></li>
+            <li><a href="#sharing">Data sharing</a></li>
+            <li><a href="#retention">Data retention</a></li>
+            <li><a href="#security">Data security</a></li>
+            <li><a href="#rights">Your rights</a></li>
+            <li><a href="#thirdparty">Third-party services</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <article class="legal-content">
+        <div class="legal-meta">
+            <span class="badge">Draft</span>
+            <span>Last updated: {% now "F j, Y" %}</span>
+            <span>·</span>
+            <span>This is a draft policy. It must be reviewed before publication.</span>
+        </div>
+
+        <section id="intro">
+            <h2>1. Introduction</h2>
+            <p>JobBridge ("we", "our", "us") operates a recruitment platform that connects candidates with employers. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.</p>
+            <p>By using JobBridge, you agree to the practices described in this policy.</p>
+        </section>
+
+        <section id="collect">
+            <h2>2. Information We Collect</h2>
+            <p>We collect information you provide directly, information generated through your use of the platform, and limited technical information.</p>
+            <ul>
+                <li><strong>Account data</strong> — name, email, password (hashed), username, and role.</li>
+                <li><strong>Profile data</strong> — work experience, education, skills, resume, profile picture.</li>
+                <li><strong>Application data</strong> — jobs you apply to, cover letters, status updates.</li>
+                <li><strong>Company data</strong> — name, industry, website, logo (for employers).</li>
+                <li><strong>Technical data</strong> — IP address, browser type, device information, and usage logs.</li>
+            </ul>
+        </section>
+
+        <section id="use">
+            <h2>3. How We Use Information</h2>
+            <ul>
+                <li>To create and manage your account.</li>
+                <li>To match candidates with relevant job opportunities.</li>
+                <li>To enable employers to review applications.</li>
+                <li>To send transactional emails (verification, password reset, application updates).</li>
+                <li>To improve the platform through aggregated analytics.</li>
+                <li>To detect and prevent fraud and abuse.</li>
+            </ul>
+        </section>
+
+        <section id="account">
+            <h2>4. Account Information</h2>
+            <p>Your account information (email, hashed password, role) is required to provide the service. You can update or delete your account at any time from your dashboard settings.</p>
+        </section>
+
+        <section id="resume">
+            <h2>5. Resume &amp; Application Data</h2>
+            <p>Resumes and cover letters you submit are shared only with the employers you apply to. We do not sell this data or make it publicly available.</p>
+        </section>
+
+        <section id="cookies">
+            <h2>6. Cookies &amp; Tracking</h2>
+            <p>We use essential cookies for authentication and session management. We do not use third-party advertising cookies. You can control cookies through your browser settings, but disabling essential cookies may prevent the platform from working.</p>
+        </section>
+
+        <section id="sharing">
+            <h2>7. Data Sharing</h2>
+            <p>We only share your data in these limited circumstances:</p>
+            <ul>
+                <li>With employers you explicitly apply to.</li>
+                <li>With service providers (hosting, email delivery) under strict contracts.</li>
+                <li>When required by law.</li>
+            </ul>
+            <p>We never sell your personal data.</p>
+        </section>
+
+        <section id="retention">
+            <h2>8. Data Retention</h2>
+            <p>We retain your data for as long as your account is active. If you delete your account, personal data is removed within 30 days, except where retention is required by law.</p>
+        </section>
+
+        <section id="security">
+            <h2>9. Data Security</h2>
+            <p>We use industry-standard safeguards including encryption in transit, hashed passwords, and access controls. No system is completely secure — if you suspect unauthorised access, contact us immediately.</p>
+        </section>
+
+        <section id="rights">
+            <h2>10. Your Rights</h2>
+            <p>Depending on your jurisdiction, you may have the right to access, correct, export, or delete your personal data, and to object to processing. To exercise these rights, contact us at privacy@jobbridge.example.</p>
+        </section>
+
+        <section id="thirdparty">
+            <h2>11. Third-Party Services</h2>
+            <p>The platform may integrate with third-party services (email delivery, analytics). Each third party maintains its own privacy policy, and we only share the minimum data required.</p>
+        </section>
+
+        <section id="contact">
+            <h2>12. Contact Us</h2>
+            <p>For privacy questions or requests, contact us at <a href="mailto:privacy@jobbridge.example">privacy@jobbridge.example</a>.</p>
+        </section>
+    </article>
+</div>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/legal.js' %}"></script>
+{% endblock %}

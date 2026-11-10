@@ -1,0 +1,50 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Edit Job - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Edit Job: {{ job.title }}</h1>
+    <a href="{% url 'employers:manage_jobs' %}" class="btn btn-ghost">Back to Jobs</a>
+</div>
+
+<div class="card">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Job Title</label>
+            <input type="text" id="title" name="title" value="{{ job.title }}" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    {% for cat in categories %}
+                    <option value="{{ cat.id }}" {% if cat.id == job.category.id %}selected{% endif %}>{{ cat.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="job_type">Job Type</label>
+                <select id="job_type" name="job_type" required>
+                    <option value="full_time" {% if job.job_type == 'full_time' %}selected{% endif %}>Full Time</option>
+                    <option value="part_time" {% if job.job_type == 'part_time' %}selected{% endif %}>Part Time</option>
+                    <option value="contract" {% if job.job_type == 'contract' %}selected{% endif %}>Contract</option>
+                    <option value="internship" {% if job.job_type == 'internship' %}selected{% endif %}>Internship</option>
+                    <option value="remote" {% if job.job_type == 'remote' %}selected{% endif %}>Remote</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" value="{{ job.location }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Job Description</label>
+            <textarea id="description" name="description" rows="6" required>{{ job.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

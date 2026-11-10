@@ -1,0 +1,37 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Applications - JobBridge Admin{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>All Applications</h1>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Job</th>
+                <th>Status</th>
+                <th>Applied</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in applications %}
+            <tr>
+                <td>{{ app.candidate.user.get_full_name }}</td>
+                <td>{{ app.job.title }}</td>
+                <td><span class="badge badge-{{ app.status }}">{{ app.get_status_display }}</span></td>
+                <td>{{ app.created_at|date:"M d, Y" }}</td>
+                <td><a href="{% url 'admin_panel:application_detail' app.id %}" class="btn btn-ghost btn-sm">View</a></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">No applications yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

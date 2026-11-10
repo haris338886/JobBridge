@@ -1,0 +1,80 @@
+/* ============================================================
+   JobBridge — Candidate-specific
+   ============================================================ */
+.education-item,
+.experience-item {
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid var(--border);
+}
+.education-item:first-child,
+.experience-item:first-child { padding-top: 0; }
+.education-item:last-child,
+.experience-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.education-item h3,
+.experience-item h3 {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-1);
+    color: var(--gray-900);
+}
+.education-item p,
+.experience-item p {
+    font-size: var(--fs-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+    line-height: 1.65;
+}
+.education-item .btn,
+.experience-item .btn {
+    margin-right: var(--space-2);
+    margin-top: var(--space-2);
+}
+
+/* Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 6px 14px;
+    background: linear-gradient(135deg, var(--brand-50), var(--accent-50));
+    color: var(--brand-700);
+    border: 1px solid var(--brand-100);
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    transition: all var(--transition-fast);
+}
+.skill-tag:hover {
+    border-color: var(--brand-300);
+    box-shadow: var(--shadow-sm);
+}
+.skill-remove {
+    color: var(--brand-600);
+    font-size: 1.1rem;
+    line-height: 1;
+    opacity: 0.6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+.skill-remove:hover {
+    opacity: 1;
+    background: var(--brand-100);
+    text-decoration: none;
+}
+
+/* Saved jobs grid */
+.saved-jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+}

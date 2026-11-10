@@ -1,0 +1,41 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Reports - JobBridge Admin{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Reports</h1>
+</div>
+
+<div class="card">
+    <h2>Platform Statistics</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-label">New Users (30d)</span>
+            <span class="stat-number">{{ new_users_30d }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">New Jobs (30d)</span>
+            <span class="stat-number">{{ new_jobs_30d }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Applications (30d)</span>
+            <span class="stat-number">{{ applications_30d }}</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Hire Rate</span>
+            <span class="stat-number">{{ hire_rate }}%</span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Export Data</h2>
+    <div class="action-buttons">
+        <a href="{% url 'admin_panel:export_users' %}" class="btn btn-outline">Export Users (CSV)</a>
+        <a href="{% url 'admin_panel:export_jobs' %}" class="btn btn-outline">Export Jobs (CSV)</a>
+        <a href="{% url 'admin_panel:export_applications' %}" class="btn btn-outline">Export Applications (CSV)</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+/* ============================================================
+   JobBridge — Navbar (marketing)
+   ============================================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+    height: var(--navbar-height);
+}
+
+.navbar-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: 0 var(--space-6);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-extrabold);
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+}
+.navbar-logo:hover { color: var(--brand-600); }
+.navbar-logo svg { color: var(--brand-600); }
+
+.navbar-menu {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+}
+
+.navbar-menu a {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    color: var(--gray-600);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+.navbar-menu a:hover {
+    color: var(--brand-700);
+    background: var(--brand-50);
+}
+.navbar-menu a.active {
+    color: var(--brand-700);
+    background: var(--brand-50);
+}
+
+.navbar-actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: var(--radius-md);
+}
+.navbar-toggle:hover { background: var(--gray-100); }
+.navbar-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--gray-700);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+.navbar-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggle.open span:nth-child(2) { opacity: 0; }
+.navbar-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 860px) {
+    .navbar-menu {
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-lg);
+        padding: var(--space-3);
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform var(--transition-base), opacity var(--transition-base);
+    }
+    .navbar-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .navbar-menu a { padding: var(--space-3); font-size: var(--fs-base); }
+    .navbar-toggle { display: flex; }
+    .navbar-actions .btn-ghost { display: none; }
+}
+
+@media (max-width: 480px) {
+    .navbar-container { padding: 0 var(--space-4); }
+    .navbar-actions .btn { padding: 0.5rem 0.875rem; font-size: var(--fs-xs); }
+}

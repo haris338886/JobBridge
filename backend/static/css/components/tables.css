@@ -1,0 +1,138 @@
+/* ============================================================
+   JobBridge — Tables & Badges
+   ============================================================ */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.table {
+    width: 100%;
+    font-size: var(--fs-sm);
+    border-collapse: collapse;
+}
+
+.table thead {
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--border);
+}
+.table th {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: var(--fw-semibold);
+    color: var(--gray-600);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border);
+    color: var(--gray-700);
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: background var(--transition-fast);
+}
+.table tbody tr:hover { background: var(--gray-50); }
+.table tbody tr:last-child td { border-bottom: none; }
+
+.table a { color: var(--brand-600); font-weight: var(--fw-medium); }
+.table a:hover { color: var(--brand-700); text-decoration: underline; }
+
+.table-actions {
+    display: flex;
+    gap: var(--space-1);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.table-empty {
+    padding: var(--space-12) var(--space-4);
+    text-align: center;
+    color: var(--text-muted);
+}
+.table-empty svg {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--space-3);
+    color: var(--gray-300);
+}
+
+/* ---------- Badges ---------- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 3px 10px;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    border-radius: var(--radius-full);
+    text-transform: capitalize;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.badge-pending,
+.badge-applied,
+.badge-reviewing  { background: var(--info-50);    color: var(--info-600);    border-color: var(--info-100); }
+.badge-active,
+.badge-hired,
+.badge-approved,
+.badge-completed  { background: var(--success-50); color: var(--success-700); border-color: var(--success-100); }
+.badge-shortlisted,
+.badge-interview,
+.badge-scheduled  { background: var(--warning-50); color: var(--warning-600); border-color: var(--warning-100); }
+.badge-rejected,
+.badge-inactive,
+.badge-cancelled  { background: var(--danger-50);  color: var(--danger-600);  border-color: var(--danger-100); }
+.badge-offered    { background: var(--accent-50);  color: var(--accent-700);  border-color: var(--accent-100); }
+.badge-draft,
+.badge-archived   { background: var(--gray-100);   color: var(--gray-600);    border-color: var(--gray-200); }
+
+/* Detail rows */
+.detail-row {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border);
+}
+.detail-row:last-child { border-bottom: none; }
+
+.detail-label {
+    font-weight: var(--fw-medium);
+    color: var(--gray-600);
+    min-width: 160px;
+    flex-shrink: 0;
+    font-size: var(--fs-sm);
+}
+
+.detail-row > :last-child { color: var(--gray-900); }
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    color: var(--text-muted);
+}
+.empty-state svg {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-4);
+    color: var(--gray-300);
+}
+.empty-state h3 { font-size: var(--fs-lg); margin-bottom: var(--space-2); color: var(--gray-900); }
+.empty-state p { margin-bottom: var(--space-4); }

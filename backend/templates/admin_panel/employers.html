@@ -1,0 +1,37 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Employers - JobBridge Admin{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Employers</h1>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Jobs Posted</th>
+                <th>Joined</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in employers %}
+            <tr>
+                <td>{{ e.company.name }}</td>
+                <td>{{ e.user.email }}</td>
+                <td>{{ e.jobs_count }}</td>
+                <td>{{ e.user.date_joined|date:"M d, Y" }}</td>
+                <td><a href="{% url 'admin_panel:employer_detail' e.id %}" class="btn btn-ghost btn-sm">View</a></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">No employers yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Saved Jobs - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Saved Jobs</h1>
+</div>
+
+<div class="jobs-grid">
+    {% for saved in saved_jobs %}
+    <div class="job-card">
+        <h3>{{ saved.job.title }}</h3>
+        <p>{{ saved.job.company.name }}</p>
+        <p>{{ saved.job.location }}</p>
+        <div class="job-card-actions">
+            <a href="{% url 'marketing:job_detail' saved.job.slug %}" class="btn btn-outline btn-sm">View</a>
+            <a href="{% url 'candidates:remove_saved' saved.id %}" class="btn btn-ghost btn-sm">Remove</a>
+        </div>
+    </div>
+    {% empty %}
+    <p>No saved jobs yet. <a href="{% url 'marketing:job_list' %}">Browse jobs</a></p>
+    {% endfor %}
+</div>
+{% endblock %}

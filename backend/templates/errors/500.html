@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error — JobBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base/typography.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layouts/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/errors.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include 'includes/marketing-navbar.html' %}
+    <main class="main-content">
+        <section class="error-page">
+            <div class="error-card">
+                <div class="error-icon danger">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                </div>
+                <div class="error-code">500</div>
+                <h1>Something went wrong</h1>
+                <p>Our team has been notified and we're working to fix the issue. Please try again in a few minutes.</p>
+
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary btn-lg">Reload homepage</a>
+                    <a href="{% url 'marketing:contact' %}" class="btn btn-outline btn-lg">Contact support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    {% include 'includes/footer.html' %}
+</body>
+</html>

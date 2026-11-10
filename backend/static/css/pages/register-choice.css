@@ -1,0 +1,160 @@
+/* ============================================================
+   JobBridge — Register choice
+   ============================================================ */
+.register-choice-container {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--space-4);
+    position: relative;
+    z-index: 1;
+}
+
+.register-choice-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+.register-choice-header h1 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.03em;
+}
+.register-choice-header p {
+    font-size: var(--fs-lg);
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+@media (max-width: 768px) {
+    .role-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
+.role-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-8) var(--space-6) var(--space-6);
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-xl);
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base),
+                border-color var(--transition-base);
+    overflow: hidden;
+}
+.role-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-500), var(--accent-500));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+.role-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--brand-500);
+}
+.role-card:hover::before { transform: scaleX(1); }
+
+.role-card--employer::before {
+    background: linear-gradient(90deg, var(--accent-500), var(--brand-500));
+}
+.role-card--employer:hover { border-color: var(--accent-500); }
+
+.role-card__badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+    background: var(--brand-50);
+    color: var(--brand-700);
+    border: 1px solid var(--brand-100);
+}
+.role-card--employer .role-card__badge {
+    background: var(--accent-50);
+    color: var(--accent-700);
+    border-color: var(--accent-100);
+}
+
+.role-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, var(--brand-100), var(--brand-50));
+    color: var(--brand-600);
+    margin-bottom: var(--space-4);
+    transition: transform var(--transition-base);
+}
+.role-card--employer .role-card__icon {
+    background: linear-gradient(135deg, var(--accent-100), var(--accent-50));
+    color: var(--accent-600);
+}
+.role-card:hover .role-card__icon { transform: scale(1.05) rotate(-3deg); }
+
+.role-card__title {
+    font-size: var(--fs-2xl);
+    margin: 0 0 var(--space-2);
+    color: var(--gray-900);
+}
+.role-card__description {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 var(--space-4);
+    flex-grow: 1;
+}
+
+.role-card__features {
+    padding: 0;
+    margin: 0 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.role-card__features li {
+    font-size: var(--fs-sm);
+    color: var(--gray-700);
+    padding-left: 0;
+}
+
+.role-card__cta {
+    margin-top: auto;
+    font-weight: var(--fw-semibold);
+    transition: all var(--transition-fast);
+}
+
+.register-choice-footer {
+    text-align: center;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin-top: var(--space-6);
+}
+.register-choice-footer a {
+    color: var(--brand-600);
+    font-weight: var(--fw-semibold);
+}
+.register-choice-footer a:hover { text-decoration: underline; }
+
+.role-card:focus-visible {
+    outline: 3px solid var(--brand-500);
+    outline-offset: 4px;
+}

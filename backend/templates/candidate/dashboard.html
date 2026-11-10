@@ -1,0 +1,55 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Candidate Dashboard - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Welcome back, {{ user.first_name|default:user.username }}!</h1>
+    <p>Here's what's happening with your job search.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <span class="stat-label">Applications Sent</span>
+        <span class="stat-number">{{ applications_count|default:0 }}</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Saved Jobs</span>
+        <span class="stat-number">{{ saved_jobs_count|default:0 }}</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Interviews</span>
+        <span class="stat-number">{{ interviews_count|default:0 }}</span>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Recent Applications</h2>
+        <a href="{% url 'candidates:applications' %}" class="btn btn-ghost">View All</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Applied</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in recent_applications %}
+            <tr>
+                <td>{{ app.job.title }}</td>
+                <td>{{ app.job.company.name }}</td>
+                <td><span class="badge badge-{{ app.status }}">{{ app.get_status_display }}</span></td>
+                <td>{{ app.created_at|timesince }} ago</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No applications yet. <a href="{% url 'marketing:job_list' %}">Browse jobs</a></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

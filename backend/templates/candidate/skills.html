@@ -1,0 +1,35 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Skills - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Skills</h1>
+</div>
+
+<div class="card">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="skill">Add a Skill</label>
+            <input type="text" id="skill" name="skill" placeholder="e.g. Python, Django, JavaScript">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Your Skills</h2>
+    <div class="skills-list">
+        {% for skill in skills %}
+        <span class="skill-tag">
+            {{ skill.name }}
+            <a href="{% url 'candidates:delete_skill' skill.id %}" class="skill-remove">&times;</a>
+        </span>
+        {% empty %}
+        <p>No skills added yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Notifications - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Notifications</h1>
+    <form method="post" style="display:inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-ghost">Mark All Read</button>
+    </form>
+</div>
+
+<div class="card">
+    <ul class="notification-list">
+        {% for notif in notifications %}
+        <li class="notification-item {% if not notif.is_read %}unread{% endif %}">
+            <div class="notification-content">
+                <strong>{{ notif.title }}</strong>
+                <p>{{ notif.message }}</p>
+                <span class="notification-time">{{ notif.created_at|timesince }} ago</span>
+            </div>
+        </li>
+        {% empty %}
+        <li>No notifications yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

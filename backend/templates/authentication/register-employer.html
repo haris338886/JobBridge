@@ -1,0 +1,124 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Create Employer Account — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/authentication.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+
+    <aside class="auth-panel">
+        <a href="{% url 'marketing:index' %}" class="auth-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>JobBridge</span>
+        </a>
+
+        <div class="auth-panel__content">
+            <h2>Find the Right Talent <span class="accent">for Your Business.</span></h2>
+            <p>Post jobs, reach thousands of qualified candidates, and build a team that drives your company forward.</p>
+
+            <div class="auth-benefits">
+                <div class="auth-benefit">
+                    <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    Post unlimited job listings
+                </div>
+                <div class="auth-benefit">
+                    <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    Smart applicant filtering &amp; ranking
+                </div>
+                <div class="auth-benefit">
+                    <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    Built-in interview scheduling
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-panel__footer">© {% now "Y" %} JobBridge. All rights reserved.</div>
+    </aside>
+
+    <section class="auth-form-side">
+        <div class="auth-form-wrap auth-form-wrap--wide">
+            <h1>Create Employer Account</h1>
+            <p class="subtitle">Start hiring exceptional talent today. Fill in your details to create your account.</p>
+
+            <div id="registerAlert" class="auth-alert" role="alert"></div>
+
+            <form id="registerEmployerForm" class="auth-form" novalidate>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name" class="required">First name</label>
+                        <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name" class="required">Last name</label>
+                        <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Work email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="company_name">Company name</label>
+                    <input type="text" id="company_name" name="company_name" autocomplete="organization">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="required">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
+                        <button type="button" class="password-toggle" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <div class="password-strength" data-strength-for="password"></div>
+                    <div class="password-strength-label"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirm" class="required">Confirm password</label>
+                    <div class="password-field">
+                        <input type="password" id="password_confirm" name="password_confirm" required minlength="8" autocomplete="new-password">
+                        <button type="button" class="password-toggle" aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group form-checkbox">
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        I agree to the <a href="{% url 'marketing:terms' %}" target="_blank">Terms</a> and <a href="{% url 'marketing:privacy' %}" target="_blank">Privacy Policy</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Create Employer Account</button>
+            </form>
+
+            <div class="auth-footer-links">
+                <div class="row">
+                    <span>Already have an account?</span>
+                    <a href="{% url 'accounts:login' %}">Log in</a>
+                </div>
+                <div class="row">
+                    <span>Looking for a job instead?</span>
+                    <a href="{% url 'accounts:register_candidate' %}">Create a candidate account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/auth.js' %}"></script>
+{% endblock %}

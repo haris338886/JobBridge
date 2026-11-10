@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Page Not Found — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/errors.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="error-card">
+        <div class="error-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+        </div>
+        <div class="error-code">404</div>
+        <h1>Page not found</h1>
+        <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+
+        <div class="error-actions">
+            <a href="{% url 'marketing:index' %}" class="btn btn-primary btn-lg">Go to homepage</a>
+            <a href="{% url 'marketing:job_list' %}" class="btn btn-outline btn-lg">Browse jobs</a>
+        </div>
+
+        <div class="error-help">
+            Looking for something specific? <a href="{% url 'marketing:contact' %}">Contact support</a>.
+        </div>
+    </div>
+</section>
+{% endblock %}

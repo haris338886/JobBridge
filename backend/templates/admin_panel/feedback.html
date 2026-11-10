@@ -1,0 +1,37 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Feedback - JobBridge Admin{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>User Feedback</h1>
+</div>
+
+<div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Submitted</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fb in feedback_list %}
+            <tr>
+                <td>{{ fb.user.username }}</td>
+                <td>{{ fb.subject }}</td>
+                <td>{{ fb.message|truncatechars:60 }}</td>
+                <td>{{ fb.created_at|date:"M d, Y" }}</td>
+                <td><span class="badge badge-{% if fb.is_resolved %}active{% else %}pending{% endif %}">{% if fb.is_resolved %}Resolved{% else %}Pending{% endif %}</span></td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5">No feedback yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

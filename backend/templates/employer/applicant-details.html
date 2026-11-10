@@ -1,0 +1,66 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Applicant Details - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Applicant: {{ application.candidate.user.get_full_name }}</h1>
+    <a href="{% url 'employers:applicants' %}" class="btn btn-ghost">Back</a>
+</div>
+
+{% if application.status %}
+<div class="card">
+    <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="badge badge-{{ application.status }}">{{ application.get_status_display }}</span>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <h2>Profile</h2>
+    <p>Email: {{ application.candidate.user.email }}</p>
+    <p>Phone: {{ application.candidate.phone|default:"Not provided" }}</p>
+    <p>Location: {{ application.candidate.location|default:"Not provided" }}</p>
+    <p>Bio: {{ application.candidate.summary|default:"Not provided" }}</p>
+
+    <h2>Resume</h2>
+    {% if application.candidate.resume %}
+        <a href="{{ application.candidate.resume.url }}" class="btn btn-outline" target="_blank">Download Resume</a>
+    {% else %}
+        <p>No resume uploaded.</p>
+    {% endif %}
+
+    <h2>Cover Letter</h2>
+    <div>{{ application.cover_letter|linebreaks|default:"No cover letter provided." }}</div>
+</div>
+
+{% if interview %}
+<div class="card">
+    <h2>Scheduled Interview</h2>
+    <div class="detail-row">
+        <span class="detail-label">When</span>
+        <span>{{ interview.scheduled_at|date:"F d, Y H:i" }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Type</span>
+        <span>{{ interview.get_interview_type_display }}</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="badge badge-{{ interview.status }}">{{ interview.get_status_display }}</span>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <h2>Actions</h2>
+    <form method="post" class="action-buttons">
+        {% csrf_token %}
+        <button type="submit" name="action" value="shortlist" class="btn btn-primary">Shortlist</button>
+        <button type="submit" name="action" value="schedule_interview" class="btn btn-success">Schedule Interview</button>
+        <button type="submit" name="action" value="reject" class="btn btn-outline">Reject</button>
+    </form>
+</div>
+{% endblock %}

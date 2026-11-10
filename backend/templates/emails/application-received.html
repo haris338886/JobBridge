@@ -1,0 +1,16 @@
+{% extends 'base/email_base.html' %}
+
+{% block title %}Application Received{% endblock %}
+
+{% block content %}
+<h2>Application Received</h2>
+<p>Hi {{ candidate.user.first_name|default:candidate.user.username }},</p>
+<p>Your application for <strong>{{ job.title }}</strong> at <strong>{{ job.company.name }}</strong> has been received.</p>
+
+<p>We'll notify you as soon as the employer reviews your application.</p>
+
+<a href="{{ application_url }}" class="email-btn">View Application</a>
+
+<p>Good luck!</p>
+<p>The JobBridge Team</p>
+{% endblock %}

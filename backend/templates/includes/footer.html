@@ -1,0 +1,45 @@
+{% load static %}
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">JobBridge</div>
+                <p>Connecting exceptional talent with outstanding companies. Your next opportunity is one click away.</p>
+            </div>
+            <div class="footer-col">
+                <h4>For Candidates</h4>
+                <a href="{% url 'marketing:job_list' %}">Browse Jobs</a>
+                <a href="{% url 'accounts:register_candidate' %}">Create Account</a>
+                <a href="{% url 'marketing:careers' %}">Career Advice</a>
+            </div>
+            <div class="footer-col">
+                <h4>For Employers</h4>
+                <a href="{% url 'accounts:register_employer' %}">Post a Job</a>
+                <a href="{% url 'marketing:contact' %}">Talk to Sales</a>
+                <a href="{% url 'marketing:about' %}">Why JobBridge</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="{% url 'marketing:about' %}">About</a>
+                <a href="{% url 'marketing:careers' %}">Careers</a>
+                <a href="{% url 'marketing:contact' %}">Contact</a>
+                <a href="{% url 'marketing:privacy' %}">Privacy Policy</a>
+                <a href="{% url 'marketing:terms' %}">Terms &amp; Conditions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span data-current-year>{% now "Y" %}</span> JobBridge. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Twitter" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 4.9c-.8.4-1.7.6-2.6.8 1-.6 1.7-1.5 2-2.6-.9.5-1.9.9-2.9 1.1C18.6 3.2 17.5 2.7 16.3 2.7c-2.3 0-4.1 1.9-4.1 4.1 0 .3 0 .6.1.9C8.7 7.5 5.5 5.9 3.4 3.2c-.4.7-.6 1.5-.6 2.3 0 1.4.7 2.7 1.9 3.4-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1.5 1.6 2 2.8 3.8 2.8-1.4 1.1-3.2 1.7-5.1 1.7-.3 0-.6 0-1-.1 1.8 1.2 4 1.9 6.3 1.9 7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.2-2.1z"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V9.7H5.7v8.7h2.6zM7 8.6a1.5 1.5 0 1 0 0-3.1 1.5 1.5 0 0 0 0 3.1zm11.3 9.7v-4.8c0-2.6-1.4-3.8-3.2-3.8-1.5 0-2.2.8-2.5 1.4V9.7h-2.6c0 .7 0 8.7 0 8.7h2.6V13c0-.2 0-.4.1-.6.2-.4.6-1 1.4-1 1 0 1.4.8 1.4 1.9v4.9h2.8z"/></svg>
+                </a>
+                <a href="#" aria-label="GitHub" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>   

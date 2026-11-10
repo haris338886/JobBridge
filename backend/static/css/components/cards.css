@@ -1,0 +1,231 @@
+/* ============================================================
+   JobBridge — Cards
+   ============================================================ */
+.card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-xs);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+.card:hover { box-shadow: var(--shadow-sm); }
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border);
+}
+.card-header h2,
+.card-header h3 { margin: 0; font-size: var(--fs-xl); }
+
+.card-body { padding: 0; }
+.card-footer {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-2);
+}
+
+/* ---------- Stat cards ---------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.stat-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-500), var(--accent-500));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.stat-card:hover::before { opacity: 1; }
+
+.stat-label {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2.5vw, var(--fs-3xl));
+    font-weight: var(--fw-extrabold);
+    color: var(--gray-900);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.stat-trend {
+    font-size: var(--fs-xs);
+    color: var(--success-600);
+    font-weight: var(--fw-medium);
+    margin-top: var(--space-1);
+}
+
+/* ---------- Job cards ---------- */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-5);
+}
+
+.jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.job-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    transition: transform var(--transition-base),
+                box-shadow var(--transition-base),
+                border-color var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.job-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--brand-200);
+    transform: translateY(-3px);
+}
+
+.job-card h3 {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--space-2);
+    color: var(--gray-900);
+}
+.job-card h3 a { color: inherit; }
+.job-card h3 a:hover { color: var(--brand-600); }
+
+.job-card .job-company {
+    color: var(--gray-700);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    margin-bottom: var(--space-1);
+}
+
+.job-card .job-location,
+.job-card .job-meta {
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-1);
+}
+
+.job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.job-type-badge {
+    background: var(--brand-50);
+    color: var(--brand-700);
+    font-size: var(--fs-xs);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    font-weight: var(--fw-semibold);
+    border: 1px solid var(--brand-100);
+}
+
+.job-posted {
+    font-size: var(--fs-xs);
+    color: var(--text-subtle);
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--border);
+}
+
+.job-card-actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+}
+
+/* ---------- Feature cards (marketing) ---------- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+}
+
+.feature-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, var(--brand-100), var(--accent-100));
+    color: var(--brand-700);
+    margin-bottom: var(--space-4);
+}
+.feature-icon svg { width: 28px; height: 28px; }
+
+.feature-card h3 { font-size: var(--fs-lg); margin-bottom: var(--space-2); }
+.feature-card p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0; }
+
+/* ---------- Sidebar cards ---------- */
+.sidebar-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin-bottom: var(--space-4);
+}
+.sidebar-card h3 {
+    font-size: var(--fs-base);
+    margin-bottom: var(--space-3);
+    color: var(--gray-900);
+}
+.sidebar-card .btn-block + .btn-block { margin-top: var(--space-2); }

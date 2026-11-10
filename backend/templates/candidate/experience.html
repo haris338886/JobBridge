@@ -1,0 +1,66 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Experience - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Work Experience</h1>
+</div>
+
+<div class="card">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group">
+                <label>Job Title</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="form-group">
+                <label>Company</label>
+                <input type="text" name="company" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" name="location">
+            </div>
+            <div class="form-group">
+                <label>Start Date</label>
+                <input type="date" name="start_date" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>End Date (leave blank if current)</label>
+                <input type="date" name="end_date">
+            </div>
+            <div class="form-group form-checkbox">
+                <label><input type="checkbox" name="is_current"> Currently working here</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">+ Add Experience</button>
+    </form>
+</div>
+
+<div class="card">
+    {% for exp in experience_list %}
+    <div class="experience-item">
+        <h3>{{ exp.title }}</h3>
+        <p>{{ exp.company }} · {{ exp.start_date|date:"M Y" }} - {{ exp.end_date|date:"M Y"|default:"Present" }}</p>
+        <p>{{ exp.description }}</p>
+        <form method="post" action="{% url 'candidates:delete_experience' exp.id %}" style="display:inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-ghost btn-sm">Delete</button>
+        </form>
+    </div>
+    {% empty %}
+    <p>No experience records yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

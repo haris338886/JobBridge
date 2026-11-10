@@ -1,0 +1,28 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Settings - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Settings</h1>
+</div>
+
+<div class="card">
+    <h2>Account Settings</h2>
+    <div class="settings-links">
+        <a href="{% url 'accounts:change_password' %}" class="settings-link">
+            <span>Change Password</span>
+            <span>&rarr;</span>
+        </a>
+        <a href="#" class="settings-link">
+            <span>Notification Preferences</span>
+            <span>&rarr;</span>
+        </a>
+        <a href="#" class="settings-link settings-link-danger">
+            <span>Delete Account</span>
+            <span>&rarr;</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

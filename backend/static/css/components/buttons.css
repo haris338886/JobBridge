@@ -1,0 +1,69 @@
+/* ============================================================
+   JobBridge — Buttons
+   ============================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    line-height: 1.2;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    position: relative;
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn svg { width: 1.05em; height: 1.05em; flex-shrink: 0; }
+
+/* ---------- Primary (Gradient) ---------- */
+.btn-primary {
+    background-color: var(--blue-600) !important;
+    background-image: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%) !important;
+    color: #ffffff !important;
+    box-shadow: var(--shadow-brand);
+}
+.btn-primary:hover {
+    background-image: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-600) 100%) !important;
+    box-shadow: 0 12px 28px -6px rgb(37 99 235 / 0.5);
+    transform: translateY(-1px);
+}
+
+/* ---------- Outline / Secondary ---------- */
+.btn-outline {
+    background: var(--bg) !important;
+    color: var(--blue-700) !important;
+    border-color: var(--blue-200) !important;
+}
+.btn-outline:hover {
+    background: var(--blue-50) !important;
+    border-color: var(--blue-300) !important;
+    color: var(--blue-800) !important;
+}
+
+/* ---------- Ghost ---------- */
+.btn-ghost {
+    background: transparent !important;
+    color: var(--gray-700) !important;
+}
+.btn-ghost:hover {
+    background: var(--gray-100) !important;
+    color: var(--gray-900) !important;
+}
+
+/* ---------- Sizes ---------- */
+.btn-sm { padding: 0.375rem 0.875rem; font-size: var(--fs-xs); }
+.btn-lg { padding: 0.875rem 1.75rem; font-size: var(--fs-base); border-radius: var(--radius-lg); }
+.btn-block { display: flex; width: 100%; }

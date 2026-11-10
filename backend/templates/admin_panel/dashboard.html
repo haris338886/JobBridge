@@ -1,0 +1,40 @@
+{% extends 'base/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard - JobBridge{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Admin Dashboard</h1>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <span class="stat-label">Total Users</span>
+        <span class="stat-number">{{ total_users }}</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Total Jobs</span>
+        <span class="stat-number">{{ total_jobs }}</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Total Applications</span>
+        <span class="stat-number">{{ total_applications }}</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-label">Pending Feedback</span>
+        <span class="stat-number">{{ pending_feedback }}</span>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Recent Activity</h2>
+    <ul class="activity-list">
+        {% for activity in recent_activity %}
+        <li>{{ activity.description }} — {{ activity.created_at|timesince }} ago</li>
+        {% empty %}
+        <li>No activity yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

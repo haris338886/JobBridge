@@ -1,0 +1,86 @@
+{% load static %}
+<header class="dashboard-topbar">
+    <div class="topbar-left">
+        <button class="topbar-menu-btn" aria-label="Toggle sidebar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M3 6h18M3 12h18M3 18h18"/>
+            </svg>
+        </button>
+        <h2 class="topbar-title">{% block topbar_title %}Dashboard{% endblock %}</h2>
+    </div>
+
+    <div class="topbar-right">
+
+        <!-- NOTIFICATIONS -->
+        <div class="custom-dropdown">
+            <button class="topbar-icon" onclick="toggleDropdown('notifMenu')" aria-label="Notifications">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="topbar-badge-dot"></span>
+            </button>
+            
+            <div class="dropdown-menu" id="notifMenu">
+                <div class="dropdown-header">Notifications</div>
+                <div class="dropdown-body">
+                    {% if notifications %}
+                        {% for notif in notifications|slice:":5" %}
+                            <a href="{{ notif.link|default:'#' }}" class="dropdown-item">
+                                <div class="dropdown-item-title">{{ notif.title }}</div>
+                                <div class="dropdown-item-text">{{ notif.message|truncatechars:50 }}</div>
+                                <div class="dropdown-item-time">{{ notif.created_at|timesince }} ago</div>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <div class="dropdown-empty">No notifications yet</div>
+                    {% endif %}
+                </div>
+                <div class="dropdown-footer">
+                    <a href="{% if user.is_employer %}{% url 'employers:notifications' %}{% else %}{% url 'candidates:notifications' %}{% endif %}">View all</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- USER MENU -->
+        <div class="custom-dropdown">
+            <button class="topbar-user" onclick="toggleDropdown('userMenu')">
+                {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" alt="{{ user.get_full_name }}" class="avatar">
+                {% else %}
+                    <div class="avatar avatar-placeholder">{{ user.email|first|upper }}</div>
+                {% endif %}
+                <span class="topbar-username">{{ user.get_full_name|default:user.email }}</span>
+                <svg class="dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-right" id="userMenu">
+                <div class="dropdown-header">
+                    <div class="dropdown-item-title">{{ user.get_full_name|default:user.email }}</div>
+                    <div class="dropdown-item-text" style="text-transform: capitalize;">{{ user.role }}</div>
+                </div>
+                
+                <a href="{% if user.is_employer %}{% url 'employers:dashboard' %}{% else %}{% url 'candidates:dashboard' %}{% endif %}" class="dropdown-item">
+                    Dashboard
+                </a>
+                <a href="{% if user.is_employer %}{% url 'employers:settings' %}{% else %}{% url 'candidates:settings' %}{% endif %}" class="dropdown-item">
+                    Settings
+                </a>
+                
+                <div class="dropdown-divider"></div>
+                
+                <a href="{% url 'accounts:logout' %}" class="dropdown-item dropdown-item-danger">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Log out
+                </a>
+            </div>
+        </div>
+
+    </div>
+</header>

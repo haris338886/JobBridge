@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Access Denied — JobBridge{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/errors.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="error-card">
+        <div class="error-icon warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+        </div>
+        <div class="error-code">403</div>
+        <h1>Access denied</h1>
+        <p>You don't have permission to view this page. If you believe this is a mistake, try logging in with a different account.</p>
+
+        <div class="error-actions">
+            <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-lg">Log in</a>
+            <a href="{% url 'marketing:index' %}" class="btn btn-outline btn-lg">Go to homepage</a>
+        </div>
+
+        <div class="error-help">
+            Need access? <a href="{% url 'marketing:contact' %}">Contact support</a>.
+        </div>
+    </div>
+</section>
+{% endblock %}
