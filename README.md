@@ -12,8 +12,8 @@
 ![Login](screenshots/login.png)
 *Split-screen login experience with JWT authentication.*
 
-### Candidate Dashboard
-![Candidate Dashboard](screenshots/candidate-dashboard.png)
+### Employers Dashboard
+![Candidate Dashboard](screenshots/employer-dashboard.png)
 *Track applications, manage profiles, and view saved jobs.*
 
 ### SignUp Page
