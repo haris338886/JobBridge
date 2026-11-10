@@ -5,7 +5,7 @@
 ## 📸 Screenshots
 
 ### Homepage & Marketing
-![Homepage](screenshots/homepage.png)
+![Homepage](../screenshots/homepage.png)
 *The modern, responsive landing page for JobBridge.*
 
 ### Login & Authentication
