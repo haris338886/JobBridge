@@ -5,7 +5,7 @@
 ## 📸 Screenshots
 
 ### Homepage & Marketing
-![Homepage](https://github.com/user-attachments/assets/3e5a8da0-637d-4b9a-8a70-d508a09e77a4)
+![Homepage](screenshots/homepage.png)
 *The modern, responsive landing page for JobBridge.*
 
 ### Login & Authentication
