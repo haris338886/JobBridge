@@ -16,9 +16,9 @@
 ![Candidate Dashboard](screenshots/candidate-dashboard.png)
 *Track applications, manage profiles, and view saved jobs.*
 
-### Employer Dashboard
-![Employer Dashboard](screenshots/employer-dashboard.png)
-*Manage job postings, review applicants, and schedule interviews.*
+### SignUp Page
+![SignUp Page](screenshots/SignUp.png)
+*Candiates and Exployees can Register*
 
 **Connecting Talent with Opportunity**
 
